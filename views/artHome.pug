@@ -1,0 +1,38 @@
+extends header.pug
+
+block content
+    script(type="text/javascript",src="../script4.js")
+    h2 Search by:
+    form
+        label(for= 'name') Artwork name 
+        br
+        input(type= 'text' id= 'artworkName' name= 'name')
+        br
+        label(for= 'artist') Artist name
+        br
+        input(type= 'text' id= 'artistName' name= 'artist')
+        br
+        label(for= 'category') Category
+        br
+        input(type= 'text' id= 'category' name= 'category')
+        br
+        button(type ='Submit', id = 'search').button Search
+
+    -let n = 0; 
+    h3 Displaying artpieces (10 at a time)
+    each art in items
+        if n < (count*10)
+            //Do nothing
+        else
+            a(href="/artworks/" + art._id) #{art.name} (#{art.artist})
+            if n == ((count * 10)+10)
+                -break
+            br
+            br
+        --n++;
+    br
+    br
+    button(id = "prev",onclick = "prev()").button Prev
+    button(id = "next",onclick = "next()").button Next
+
+    

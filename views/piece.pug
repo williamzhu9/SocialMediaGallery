@@ -1,0 +1,36 @@
+extends header.pug
+
+block content 
+    script(type = "text/javascript",src ="../script.js")
+    script(type="text/javascript").
+        var session = JSON.parse('!{JSON.stringify(session)}');
+        var piece = JSON.parse('!{JSON.stringify(art)}');
+    
+    h2 Artwork name: #{art.name}
+    h3 Artist: 
+        a(href= "/artists/" + art.artist) #{art.artist}
+    h5 Artwork year: #{art.year} 
+    h5 Category: 
+        a(href='/artworks/categories/' + art.category) #{art.category} 
+    h5 Medium: 
+        a(href='/artworks/mediums/' + art.medium) #{art.medium} 
+    img(src = art.image).image
+    p Description: #{art.description}
+    p Likes: #{art.likes}
+    p Reviews:
+        each review in art.reviews
+            p From user: #{review.user}
+            p #{review.text}
+            if session.username == review.user && session.loggedin
+                button(id = review.text, onclick = "delRev(piece,this.id,session)").button Delete review
+            br
+    if session.username != art.artist
+        p Write a review!: 
+        textarea(id = art._id,rows = "4",cols="50")
+        br
+        button(id= art._id, onclick = "review(this.id,session)").button  Submit review!
+        if art.likedBy.hasOwnProperty(session.username)
+            button(id = art._id, onclick = "like(this.id,session,piece)").button Unlike this artwork
+        else
+            button(id = art._id, onclick = "like(this.id,session,piece)").button Like this artwork
+        br

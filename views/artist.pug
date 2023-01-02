@@ -1,0 +1,21 @@
+extends header.pug 
+
+block content 
+    script(type="text/javascript",src="../script.js")
+    script(type="text/javascript").
+        var session = JSON.parse('!{JSON.stringify(session)}');
+        var artist = JSON.parse('!{JSON.stringify(name)}');
+    h1 #{name}'s page
+    h2 Upcoming workshops:
+    each workshop in artist.workshops
+        a(href="/artist/" + name  + "/" + workshop.name) #{workshop.name}
+        button(id = workshop.name, onclick = "enroll(this.id,session)").button Enroll here!
+        br
+
+    button(id= name, onclick = "follow(this.id,session)").button Follow this Artist!
+
+    h2 All artwork links: 
+    each piece in artwork
+        a(href = "/artworks/" + piece._id) #{piece.name}
+        br
+        br

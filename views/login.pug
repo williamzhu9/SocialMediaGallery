@@ -1,0 +1,18 @@
+extends header.pug
+
+block content
+    script(type = "text/javascript",src ="script.js")
+    script(type = "text/javascript").
+        let users = JSON.parse('!{JSON.stringify(users)}');
+    form(action ='/login' method = 'POST')
+        label(for='username') Enter username 
+        br
+        input(type='text' id='username' name='username' required)
+        br
+        label(for='password') Enter password
+        br
+        input(type='text' id='password' name='password' required)
+        br
+        br
+        button(type = "submit") Login
+    button(type = "submit" id = "register", onclick = "register(users)") Register

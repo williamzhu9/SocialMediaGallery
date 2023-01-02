@@ -1,0 +1,46 @@
+extends header.pug 
+
+
+block content
+    script(type="text/javascript",src="script.js")
+    script(type="text/javascript").
+        var session = JSON.parse('!{JSON.stringify(session)}');
+        var artists = JSON.parse('!{JSON.stringify(artists)}');
+
+    h1 Account page
+    h2 Welcome #{session.username}!
+    if user.artist
+        h3 Mode: Artist 
+    else 
+        h3 Mode: Patron
+    
+    h3 Following: 
+    each artist in user.following 
+        a(href="/artists/" + artist) #{artist}
+        button(id = artist, onclick="unfollow(this.id)").button Unfollow
+        br
+    h3 Liked pieces:
+    each piece in user.liked
+        a(href="/artworks/" + piece._id) #{piece.name}
+        button(id = piece._id, onclick="unlike(this.id)").button Unlike
+        br
+    br
+    h3 Reviewed pieces: 
+    each piece in user.reviews 
+        a(href="/artworks/" + piece._id) #{piece.name}
+        button(id = piece._id, onclick="clearRev(this.id,session)").button Clear reviews
+        br
+    br
+
+    h3 Notifications: 
+    each message in user.notifications
+        p #{message}
+        button(onclick="clearNotifs()").button Clear notifications
+        br
+    br
+
+    script(type="text/javascript",src="script.js")
+    button(id = "artist", onclick = "artistMode(artists,session)").button Artist mode (toggle)
+    br
+    br
+    button(id = "logout",onclick="logout()").button Logout

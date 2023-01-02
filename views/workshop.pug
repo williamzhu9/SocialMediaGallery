@@ -1,0 +1,10 @@
+extends header.pug 
+
+block content 
+    h1 #{workshop.name}
+
+    h2 Workshop date: #{workshop.date} 
+    h2 Workshop time: #{workshop.time} 
+    h2 Enrolled:
+    each person in workshop.enrolled 
+        li #{person}

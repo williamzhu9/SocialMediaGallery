@@ -1,0 +1,46 @@
+
+html(lang="en")
+    head 
+        title Online Art gallery page
+        h1  
+            //Links to 3 pages
+            a(href="/") Home page 
+            br
+            a(href="/artworks") Artworks
+            br
+            a(href="/account") Account information
+            br
+            a(href="/artist", id = "artistStatus") Artist section
+            br
+
+    link(rel="stylesheet" hred="style.css")
+    style(type="text/css").
+        body{
+            margin: 20px;
+            color:salmon;
+            background-color:Cornsilk;
+        }
+        .image{
+            max-width:80%;
+            height:auto;
+            width:auto;
+            margin:auto;
+        }
+        .right{
+            float:right;
+            width:50%;
+        }
+        .left{
+            float:left;
+            width:50%
+        }
+        .button{
+            margin:5px;
+            background-color:BlanchedAlmond;
+        }
+        .hide{
+            display:none;
+        }
+
+    body 
+        block content

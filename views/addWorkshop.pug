@@ -1,0 +1,23 @@
+extends header.pug 
+
+block content 
+    script(type="text/javascript",src="../script3.js")
+    script(type="text/javascript").
+        var session = JSON.parse('!{JSON.stringify(session)}');
+    h1 #{session.username}'s add workshop page
+    form
+        label(for= 'name') Workshop name 
+        br
+        input(type= 'text' id= 'name' name= 'name' required)
+        br
+        label(for= 'year') Workshop day (dd/mm/yyyy)
+        br
+        input(type= 'text' id= 'date' name= 'date' required)
+        br
+        label(for= 'time') Workshop time (24hr system)
+        br
+        input(type= 'text' id= 'time' name= 'time' required)
+        br
+        button(type ='Submit', id = 'add').button Add workshop
+    div#errors
+        

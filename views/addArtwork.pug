@@ -1,0 +1,34 @@
+extends header.pug 
+
+block content 
+    script(type="text/javascript",src="../script2.js")
+    script(type="text/javascript").
+        var session = JSON.parse('!{JSON.stringify(session)}');
+    h1 #{session.username}'s add artwork page
+    form
+        label(for= 'name') Artpiece name 
+        br
+        input(type= 'text' id= 'name' name= 'name' required)
+        br
+        label(for= 'year') Artpiece year
+        br
+        input(type= 'text' id= 'year' name= 'year' required)
+        br
+        label(for= 'category') Artpiece category
+        br
+        input(type= 'text' id= 'category' name= 'category' required)
+        br
+        label(for= 'medium') Artpiece medium
+        br
+        input(type= 'text' id= 'medium' name= 'medium' required)
+        br
+        label(for= 'desc') Artpiece description
+        br
+        textarea(name = 'desc', id = 'desc', rows = "4",cols="50" required)
+        br
+        label(for= 'source') Artpiece source
+        br
+        input(type= 'text' id= 'source' name= 'source' required)
+        br
+        button(type ='Submit', id = 'upload').button Upload art
+    div#errors
