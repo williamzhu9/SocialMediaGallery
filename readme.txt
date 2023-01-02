@@ -4,6 +4,7 @@ How to set up the platform using VSCode
 (If you haven't already)
 0.0 Install Node.js in VSCode
     Install mongodb service from this location https://www.mongodb.com/try/download/community
+        This will allow you to have the mongodb services on your computer, if you have another mongodb service, it should work as well.
 (First time setup, run these commands in the same directory as the server.js file)
 0.5 Npm install mongodb
     Npm install express
