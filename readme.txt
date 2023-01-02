@@ -3,6 +3,7 @@ How to set up the platform using VSCode
 
 (If you haven't already, in VSCode use the following Node.js commands to install the necessary packages)
 0.0 Install Node.js in VSCode
+    Install mongodb service
 0.5 Npm install mongodb
     Npm install express
     Npm install pug
