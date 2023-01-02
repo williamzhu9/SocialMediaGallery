@@ -1,9 +1,10 @@
 How to set up the platform using VSCode 
 (Ensure that you run all these commands in the same directory as server.js and database-initializer.js)
 
-(If you haven't already, in VSCode use the following Node.js commands to install the necessary packages)
+(If you haven't already)
 0.0 Install Node.js in VSCode
     Install mongodb service from this location https://www.mongodb.com/try/download/community
+(First time setup, run these commands in the same directory as the server.js file)
 0.5 Npm install mongodb
     Npm install express
     Npm install pug
